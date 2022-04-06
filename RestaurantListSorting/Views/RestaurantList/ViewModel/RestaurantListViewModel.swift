@@ -28,7 +28,7 @@ class RestaurantListViewModel {
     }
     
     // MARK: - Private Functions
-    func loadJson(fileName: String) -> RestaurantList? {
+    private func loadJson(fileName: String) -> RestaurantList? {
         if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
             do {
                 let data = try Data(contentsOf: url)
