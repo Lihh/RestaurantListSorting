@@ -19,6 +19,8 @@
 		02552DFB27FD3A7C00752CA6 /* RestaurantListSortingUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02552DFA27FD3A7C00752CA6 /* RestaurantListSortingUITestsLaunchTests.swift */; };
 		02552E0E27FD44AB00752CA6 /* RestaurantListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02552E0D27FD44AB00752CA6 /* RestaurantListViewModel.swift */; };
 		02552E1027FD44C300752CA6 /* RestaurantListViewModelProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02552E0F27FD44C300752CA6 /* RestaurantListViewModelProtocol.swift */; };
+		02552E1727FD488A00752CA6 /* restaurantListExample.json in Resources */ = {isa = PBXBuildFile; fileRef = 02552E1627FD488A00752CA6 /* restaurantListExample.json */; };
+		02552E1A27FD49D000752CA6 /* RestaurantList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02552E1927FD49D000752CA6 /* RestaurantList.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +57,8 @@
 		02552DFA27FD3A7C00752CA6 /* RestaurantListSortingUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListSortingUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		02552E0D27FD44AB00752CA6 /* RestaurantListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewModel.swift; sourceTree = "<group>"; };
 		02552E0F27FD44C300752CA6 /* RestaurantListViewModelProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantListViewModelProtocol.swift; sourceTree = "<group>"; };
+		02552E1627FD488A00752CA6 /* restaurantListExample.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = restaurantListExample.json; sourceTree = "<group>"; };
+		02552E1927FD49D000752CA6 /* RestaurantList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantList.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,8 +110,8 @@
 			isa = PBXGroup;
 			children = (
 				02552E1227FD46F200752CA6 /* Resources */,
-				02552E1127FD468800752CA6 /* LaunchScreen */,
-				02552E0827FD417C00752CA6 /* RestaurantList */,
+				02552E1827FD48CE00752CA6 /* Views */,
+				02552E1327FD47F600752CA6 /* Data */,
 			);
 			path = RestaurantListSorting;
 			sourceTree = "<group>";
@@ -182,6 +186,40 @@
 				02552DD427FD3A7A00752CA6 /* AppDelegate.swift */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		02552E1327FD47F600752CA6 /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				02552E1527FD484E00752CA6 /* JSONFiles */,
+				02552E1427FD481C00752CA6 /* Models */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
+		02552E1427FD481C00752CA6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				02552E1927FD49D000752CA6 /* RestaurantList.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		02552E1527FD484E00752CA6 /* JSONFiles */ = {
+			isa = PBXGroup;
+			children = (
+				02552E1627FD488A00752CA6 /* restaurantListExample.json */,
+			);
+			path = JSONFiles;
+			sourceTree = "<group>";
+		};
+		02552E1827FD48CE00752CA6 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				02552E1127FD468800752CA6 /* LaunchScreen */,
+				02552E0827FD417C00752CA6 /* RestaurantList */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -291,6 +329,7 @@
 				02552DE427FD3A7B00752CA6 /* LaunchScreen.storyboard in Resources */,
 				02552DE127FD3A7B00752CA6 /* Assets.xcassets in Resources */,
 				02552DDC27FD3A7A00752CA6 /* RestaurantList.storyboard in Resources */,
+				02552E1727FD488A00752CA6 /* restaurantListExample.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +355,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				02552DD927FD3A7A00752CA6 /* RestaurantListViewController.swift in Sources */,
+				02552E1A27FD49D000752CA6 /* RestaurantList.swift in Sources */,
 				02552E1027FD44C300752CA6 /* RestaurantListViewModelProtocol.swift in Sources */,
 				02552E0E27FD44AB00752CA6 /* RestaurantListViewModel.swift in Sources */,
 				02552DDF27FD3A7A00752CA6 /* RestaurantListSorting.xcdatamodeld in Sources */,
