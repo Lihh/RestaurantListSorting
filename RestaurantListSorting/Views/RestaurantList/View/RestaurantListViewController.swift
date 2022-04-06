@@ -13,11 +13,14 @@ class RestaurantListViewController: UIViewController {
     @IBOutlet weak var restaurantListTableView: UITableView!
     
     // MARK: - Properties
-    var viewModel: RestaurantListViewModelProtocol?
+    var viewModel = RestaurantListViewModel()
     
-    // MARK: - Lyfe Cycle
+    // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        setTableViewDelegates()
+        
+        viewModel.loadRestaurantList()
     }
 }
 
