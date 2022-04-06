@@ -105,13 +105,9 @@
 		02552DD327FD3A7A00752CA6 /* RestaurantListSorting */ = {
 			isa = PBXGroup;
 			children = (
+				02552E1227FD46F200752CA6 /* Resources */,
+				02552E1127FD468800752CA6 /* LaunchScreen */,
 				02552E0827FD417C00752CA6 /* RestaurantList */,
-				02552DD427FD3A7A00752CA6 /* AppDelegate.swift */,
-				02552DD627FD3A7A00752CA6 /* SceneDelegate.swift */,
-				02552DE027FD3A7B00752CA6 /* Assets.xcassets */,
-				02552DE227FD3A7B00752CA6 /* LaunchScreen.storyboard */,
-				02552DE527FD3A7B00752CA6 /* Info.plist */,
-				02552DDD27FD3A7A00752CA6 /* RestaurantListSorting.xcdatamodeld */,
 			);
 			path = RestaurantListSorting;
 			sourceTree = "<group>";
@@ -166,6 +162,26 @@
 				02552E0F27FD44C300752CA6 /* RestaurantListViewModelProtocol.swift */,
 			);
 			path = Protocol;
+			sourceTree = "<group>";
+		};
+		02552E1127FD468800752CA6 /* LaunchScreen */ = {
+			isa = PBXGroup;
+			children = (
+				02552DE227FD3A7B00752CA6 /* LaunchScreen.storyboard */,
+			);
+			path = LaunchScreen;
+			sourceTree = "<group>";
+		};
+		02552E1227FD46F200752CA6 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				02552DDD27FD3A7A00752CA6 /* RestaurantListSorting.xcdatamodeld */,
+				02552DE527FD3A7B00752CA6 /* Info.plist */,
+				02552DE027FD3A7B00752CA6 /* Assets.xcassets */,
+				02552DD627FD3A7A00752CA6 /* SceneDelegate.swift */,
+				02552DD427FD3A7A00752CA6 /* AppDelegate.swift */,
+			);
+			path = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -485,7 +501,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9WJKK289EM;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RestaurantListSorting/Info.plist;
+				INFOPLIST_FILE = RestaurantListSorting/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = RestaurantList;
@@ -513,7 +529,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9WJKK289EM;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = RestaurantListSorting/Info.plist;
+				INFOPLIST_FILE = RestaurantListSorting/Resources/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = RestaurantList;
