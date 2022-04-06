@@ -17,42 +17,59 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tsy-Dj-z5v">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="97" width="414" height="765"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantTableViewCellId" id="qNf-H0-Gk1" customClass="RestaurantTableViewCell" customModule="RestaurantListSorting" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantTableViewCellId" rowHeight="69" id="qNf-H0-Gk1" customClass="RestaurantTableViewCell" customModule="RestaurantListSorting" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="69"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qNf-H0-Gk1" id="61r-4a-cRl">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="69"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurant Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XdH-ts-Q6L">
-                                                    <rect key="frame" x="20" y="11.5" width="132" height="21"/>
+                                                    <rect key="frame" x="20" y="8" width="132" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opening State" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5W6-dE-cGP">
+                                                    <rect key="frame" x="20" y="43" width="98.5" height="18"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="XdH-ts-Q6L" firstAttribute="centerY" secondItem="61r-4a-cRl" secondAttribute="centerY" id="aTb-39-YEw"/>
+                                                <constraint firstItem="XdH-ts-Q6L" firstAttribute="top" secondItem="61r-4a-cRl" secondAttribute="top" constant="8" id="6MS-Hk-Gaw"/>
+                                                <constraint firstAttribute="bottom" secondItem="5W6-dE-cGP" secondAttribute="bottom" constant="8" id="SPh-aS-160"/>
+                                                <constraint firstItem="5W6-dE-cGP" firstAttribute="leading" secondItem="XdH-ts-Q6L" secondAttribute="leading" id="Uev-hE-ww8"/>
                                                 <constraint firstItem="XdH-ts-Q6L" firstAttribute="leading" secondItem="61r-4a-cRl" secondAttribute="leading" constant="20" symbolic="YES" id="bsm-hr-p6Z"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="nameLabel" destination="XdH-ts-Q6L" id="DER-o1-clg"/>
+                                            <outlet property="openingStateLabel" destination="5W6-dE-cGP" id="oat-tr-fko"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Restaurants" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yKj-TU-WRG">
+                                <rect key="frame" x="145.5" y="52" width="123.5" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tsy-Dj-z5v" secondAttribute="bottom" id="5B6-I6-S0f"/>
+                            <constraint firstItem="yKj-TU-WRG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="AUd-OY-jFh"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tsy-Dj-z5v" secondAttribute="trailing" id="Jcv-tJ-AE3"/>
-                            <constraint firstItem="tsy-Dj-z5v" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="c6w-SO-dsM"/>
                             <constraint firstItem="tsy-Dj-z5v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dfS-gX-ift"/>
+                            <constraint firstItem="yKj-TU-WRG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qD1-iO-6E5"/>
+                            <constraint firstItem="tsy-Dj-z5v" firstAttribute="top" secondItem="yKj-TU-WRG" secondAttribute="bottom" constant="16" id="v12-z8-Mwg"/>
                         </constraints>
                     </view>
                     <connections>
@@ -61,7 +78,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="20" y="85"/>
+            <point key="canvasLocation" x="18.840579710144929" y="84.375"/>
         </scene>
     </scenes>
     <resources>

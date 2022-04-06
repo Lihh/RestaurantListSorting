@@ -14,6 +14,7 @@ class RestaurantListViewController: UIViewController {
     
     // MARK: - Properties
     var viewModel = RestaurantListViewModel()
+    let cellHeightDefaultValue: CGFloat = 60
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
