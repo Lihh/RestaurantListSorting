@@ -10,21 +10,21 @@ import Foundation
 class RestaurantListViewModel {
     
     // MARK: - Properties
-    var restaurantList: RestaurantList? = nil
     var restaurantListOpen: [Restaurant] = []
     var restaurantListOrderAhead: [Restaurant] = []
     var restaurantListClosed: [Restaurant] = []
     var numberOfSections = 3
+    
+    var openingStateSelected: OpeningStatesTypes = .All
+    var sortingValueTypeSelected: SortingValueTypes = .Alphabetic
+    var sortingOrderTypes: SortingOrderTypes = .Ascending
+    
     let jsonFileName = "RestaurantListExample"
-    let openingStateOpen = "open"
-    let openingStateOrderAhead = "order ahead"
-    let openingStateClosed = "closed"
     
     // MARK: - Public Functions
     func loadRestaurantList() {
         guard let list = loadJson(fileName: jsonFileName) else { return }
-        restaurantList = list
-        separateOpeningStates()
+        separateRestaurantsByOpeningStates(list)
     }
     
     func getNumberOfSections() -> Int {
@@ -33,19 +33,27 @@ class RestaurantListViewModel {
     
     func getTitleForHeaderInSection(section: Int) -> String {
         switch section {
-        case 0: return openingStateOpen.uppercased()
-        case 1: return openingStateOrderAhead.uppercased()
-        case 2: return openingStateClosed.uppercased()
-        default: return ""
+        case 0:
+            return shouldShowOpeningState(.Open) ? OpeningStatesTypes.Open.rawValue.uppercased() : ""
+        case 1:
+            return shouldShowOpeningState(.OrderAhead) ? OpeningStatesTypes.OrderAhead.rawValue.uppercased() : ""
+        case 2:
+            return shouldShowOpeningState(.Closed) ? OpeningStatesTypes.Closed.rawValue.uppercased() : ""
+        default:
+            return ""
         }
     }
     
     func getNumberOfRowsInSection(_ section: Int) -> Int {
         switch section {
-        case 0: return restaurantListOpen.count
-        case 1: return restaurantListOrderAhead.count
-        case 2: return restaurantListClosed.count
-        default: return 0
+        case 0:
+            return shouldShowOpeningState(.Open) ? restaurantListOpen.count : 0
+        case 1:
+            return shouldShowOpeningState(.OrderAhead) ? restaurantListOrderAhead.count : 0
+        case 2:
+            return shouldShowOpeningState(.Closed) ? restaurantListClosed.count : 0
+        default:
+            return 0
         }
     }
     
@@ -82,20 +90,23 @@ class RestaurantListViewModel {
         return nil
     }
     
-    private func separateOpeningStates() {
-        guard let restaurantList = restaurantList else { return }
-        restaurantListOpen = getOpeningStateRestaurants(inList: restaurantList.restaurants, withState: openingStateOpen)
-        restaurantListOrderAhead = getOpeningStateRestaurants(inList: restaurantList.restaurants, withState: openingStateOrderAhead)
-        restaurantListClosed = getOpeningStateRestaurants(inList: restaurantList.restaurants, withState: openingStateClosed)
+    private func separateRestaurantsByOpeningStates(_ list: RestaurantList) {
+        restaurantListOpen = getOpeningStateRestaurants(inList: list.restaurants, withState: .Open)
+        restaurantListOrderAhead = getOpeningStateRestaurants(inList: list.restaurants, withState: .OrderAhead)
+        restaurantListClosed = getOpeningStateRestaurants(inList: list.restaurants, withState: .Closed)
     }
     
-    private func getOpeningStateRestaurants(inList list: [Restaurant], withState state: String) -> [Restaurant] {
+    private func getOpeningStateRestaurants(inList list: [Restaurant], withState state: OpeningStatesTypes) -> [Restaurant] {
         var newList: [Restaurant] = []
         for restaurant in list {
-            if restaurant.status == state {
+            if restaurant.status == state.rawValue {
                 newList.append(restaurant)
             }
         }
         return newList
+    }
+    
+    private func shouldShowOpeningState(_ state: OpeningStatesTypes) -> Bool {
+        return openingStateSelected == .All || openingStateSelected == state ? true : false
     }
 }
