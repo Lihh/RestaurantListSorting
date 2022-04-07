@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="tsy-Dj-z5v">
-                                <rect key="frame" x="0.0" y="114" width="414" height="748"/>
+                                <rect key="frame" x="0.0" y="197.5" width="414" height="664.5"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="RestaurantTableViewCellId" rowHeight="69" id="qNf-H0-Gk1" customClass="RestaurantTableViewCell" customModule="RestaurantListSorting" customModuleProvider="target">
@@ -79,28 +79,61 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sorting Option Selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QvW-fT-v1z">
-                                <rect key="frame" x="20" y="89" width="155" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <rect key="frame" x="20" y="132" width="182.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Opening State Selected" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t0z-iz-rPU">
+                                <rect key="frame" x="20" y="101" width="180.5" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xcb-Wp-oLQ">
+                                <rect key="frame" x="256" y="96" width="138" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Change Selection"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8L1-Wt-UXX">
+                                <rect key="frame" x="215" y="158" width="179" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Change Order Selection"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNY-ZO-mYj">
+                                <rect key="frame" x="256" y="127" width="138" height="31"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="Change Selection"/>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="QvW-fT-v1z" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="4Rl-cl-oFg"/>
+                            <constraint firstItem="8L1-Wt-UXX" firstAttribute="trailing" secondItem="gNY-ZO-mYj" secondAttribute="trailing" id="1P1-TH-ODm"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="tsy-Dj-z5v" secondAttribute="bottom" id="5B6-I6-S0f"/>
                             <constraint firstItem="yKj-TU-WRG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="8" id="AUd-OY-jFh"/>
+                            <constraint firstItem="gNY-ZO-mYj" firstAttribute="trailing" secondItem="Xcb-Wp-oLQ" secondAttribute="trailing" id="Ets-Dh-U1p"/>
+                            <constraint firstItem="t0z-iz-rPU" firstAttribute="top" secondItem="yKj-TU-WRG" secondAttribute="bottom" constant="20" id="InV-fW-QF4"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="tsy-Dj-z5v" secondAttribute="trailing" id="Jcv-tJ-AE3"/>
-                            <constraint firstItem="QvW-fT-v1z" firstAttribute="top" secondItem="yKj-TU-WRG" secondAttribute="bottom" constant="8" id="Ntg-Mh-SIx"/>
-                            <constraint firstItem="tsy-Dj-z5v" firstAttribute="top" secondItem="QvW-fT-v1z" secondAttribute="bottom" constant="8" id="WHu-dP-SxC"/>
+                            <constraint firstItem="Xcb-Wp-oLQ" firstAttribute="centerY" secondItem="t0z-iz-rPU" secondAttribute="centerY" id="PNd-Us-sHz"/>
+                            <constraint firstItem="t0z-iz-rPU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="ZfD-cj-ml4"/>
+                            <constraint firstItem="QvW-fT-v1z" firstAttribute="leading" secondItem="t0z-iz-rPU" secondAttribute="leading" id="dOT-YR-8WO"/>
+                            <constraint firstItem="gNY-ZO-mYj" firstAttribute="top" secondItem="Xcb-Wp-oLQ" secondAttribute="bottom" id="de1-np-SRv"/>
                             <constraint firstItem="tsy-Dj-z5v" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="dfS-gX-ift"/>
+                            <constraint firstItem="tsy-Dj-z5v" firstAttribute="top" secondItem="8L1-Wt-UXX" secondAttribute="bottom" constant="8.5" id="iCO-Rd-sOU"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Xcb-Wp-oLQ" secondAttribute="trailing" constant="20" id="lsn-J2-qtZ"/>
+                            <constraint firstItem="gNY-ZO-mYj" firstAttribute="centerY" secondItem="QvW-fT-v1z" secondAttribute="centerY" id="phI-62-sku"/>
                             <constraint firstItem="yKj-TU-WRG" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="qD1-iO-6E5"/>
+                            <constraint firstItem="8L1-Wt-UXX" firstAttribute="top" secondItem="gNY-ZO-mYj" secondAttribute="bottom" id="xLG-f1-nRO"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="openingStateSelectedLabel" destination="t0z-iz-rPU" id="09E-hd-2dW"/>
+                        <outlet property="openingStateSelectionButton" destination="Xcb-Wp-oLQ" id="HtJ-fI-Cqk"/>
                         <outlet property="restaurantListTableView" destination="tsy-Dj-z5v" id="r2m-kK-K0B"/>
                         <outlet property="sortingOptionSelectedLabel" destination="QvW-fT-v1z" id="thy-qI-Ouv"/>
+                        <outlet property="sortingOptionSelectionButton" destination="gNY-ZO-mYj" id="D8w-Q9-wMa"/>
+                        <outlet property="sortingOrderSelectionButton" destination="8L1-Wt-UXX" id="Vpv-1M-QfO"/>
                         <outlet property="titleLabel" destination="yKj-TU-WRG" id="SrA-f9-46g"/>
                     </connections>
                 </viewController>

@@ -35,11 +35,64 @@ class RestaurantListViewModelTests: QuickSpec {
                 expect(self.subject.getTitleText()).to(equal("Restaurants"))
             }
             
+            it("Should validate opening state selected label text") {
+                expect(self.subject.getOpeningStateSelectedText()).to(equal("Opening state:"))
+            }
+            
+            it("Should validate opening state selection button text for openingStateSelected = All") {
+                self.subject.openingStateSelected = .All
+                expect(self.subject.getOpeningStateSelectionButtonText()).to(equal("showing all restaurants"))
+            }
+            
+            it("Should validate opening state selection button text for openingStateSelected = Open") {
+                self.subject.openingStateSelected = .Open
+                expect(self.subject.getOpeningStateSelectionButtonText()).to(equal("showing open restaurants"))
+            }
+            
+            it("Should validate opening state selection button text for openingStateSelected = OrderAhead") {
+                self.subject.openingStateSelected = .OrderAhead
+                expect(self.subject.getOpeningStateSelectionButtonText()).to(equal("showing order ahead restaurants"))
+            }
+            
+            it("Should validate opening state selection button text for openingStateSelected = Closed") {
+                self.subject.openingStateSelected = .Closed
+                expect(self.subject.getOpeningStateSelectionButtonText()).to(equal("showing closed restaurants"))
+            }
+            
+            it("Should validate opening state selection button accessibility hint") {
+                expect(self.subject.getOpeningStateSelectionButtonAccessibilityHint()).to(equal("Change opening state"))
+            }
+            
             it("Should validate sorting option selected label text") {
+                expect(self.subject.getSortingOptionSelectedText()).to(equal("Sorted by:"))
+            }
+            
+            it("Should validate sorting option selection button text for sortingOptionTypeSelected = Alphabetic") {
                 self.subject.sortingOptionTypeSelected = .Alphabetic
+                expect(self.subject.getSortingOptionSelectionButtonText()).to(equal("Alphabetic"))
+            }
+            
+            it("Should validate sorting option selection button text for sortingOptionTypeSelected = Newest") {
+                self.subject.sortingOptionTypeSelected = .Newest
+                expect(self.subject.getSortingOptionSelectionButtonText()).to(equal("Newest"))
+            }
+            
+            it("Should validate sorting option selection button accessibility hint") {
+                expect(self.subject.getSortingOptionSelectionButtonAccessibilityHint()).to(equal("Change sorting option"))
+            }
+            
+            it("Should validate sorting order selection button text for sortingOrderTypeSelected = Ascending") {
                 self.subject.sortingOrderTypeSelected = .Ascending
-                let text = "Sorted by: Alphabetic, Ascending"
-                expect(self.subject.getSortingOptionSelectedText()).to(equal(text))
+                expect(self.subject.getSortingOrderSelectionButtonText()).to(equal("Ascending"))
+            }
+            
+            it("Should validate sorting order selection button text for sortingOrderTypeSelected = Descending") {
+                self.subject.sortingOrderTypeSelected = .Descending
+                expect(self.subject.getSortingOrderSelectionButtonText()).to(equal("Descending"))
+            }
+            
+            it("Should validate sorting order selection button accessibility hint") {
+                expect(self.subject.getSortingOrderSelectionButtonAccessibilityHint()).to(equal("Change sorting order"))
             }
             
             // Table View Info Functions Validation

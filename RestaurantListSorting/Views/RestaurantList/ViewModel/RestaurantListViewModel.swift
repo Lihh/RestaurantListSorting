@@ -33,8 +33,36 @@ class RestaurantListViewModel {
         return "Restaurants"
     }
     
+    func getOpeningStateSelectedText() -> String {
+        return "Opening state:"
+    }
+    
+    func getOpeningStateSelectionButtonText() -> String {
+        return "showing \(openingStateSelected.rawValue) restaurants"
+    }
+    
+    func getOpeningStateSelectionButtonAccessibilityHint() -> String {
+        return "Change opening state"
+    }
+    
     func getSortingOptionSelectedText() -> String {
-        return "Sorted by: \(sortingOptionTypeSelected.rawValue), \(sortingOrderTypeSelected.rawValue)"
+        return "Sorted by:"
+    }
+    
+    func getSortingOptionSelectionButtonText() -> String {
+        return sortingOptionTypeSelected.rawValue
+    }
+    
+    func getSortingOptionSelectionButtonAccessibilityHint() -> String {
+        return "Change sorting option"
+    }
+    
+    func getSortingOrderSelectionButtonText() -> String {
+        return sortingOrderTypeSelected.rawValue
+    }
+    
+    func getSortingOrderSelectionButtonAccessibilityHint() -> String {
+        return "Change sorting order"
     }
     
     // Table View Info Functions
