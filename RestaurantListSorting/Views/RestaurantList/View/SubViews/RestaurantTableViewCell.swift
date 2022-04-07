@@ -32,10 +32,14 @@ class RestaurantTableViewCell: UITableViewCell {
     
     // MARK: - Private Functions
     func setupAccessibility() {
-        let hasSortingOptionDescription = sortingOptionDescriptionLabel.text != nil
         nameLabel.setAccessibility(id: "restaurant_cell_name_label", label: nameLabel.text, enabled: true)
         openingStateLabel.setAccessibility(id: "restaurant_cell_opening_state_label", label: "Opening state: \(openingStateLabel.text ?? "")", enabled: true)
-        sortingOptionDescriptionLabel.setAccessibility(id: "restaurant_cell_sorting_opt_description_label", label: sortingOptionDescriptionLabel.text, enabled: hasSortingOptionDescription)
-        sortingOptionValueLabel.setAccessibility(id: "restaurant_cell_sorting_opt_value_label", label: sortingOptionValueLabel.text, enabled: hasSortingOptionDescription)
+        if let sortingOptionDescription = sortingOptionDescriptionLabel.text,
+            let sortingOptionValue = sortingOptionValueLabel.text {
+            sortingOptionDescriptionLabel.setAccessibility(id: "restaurant_cell_sorting_opt_description_label", label: "\(sortingOptionDescription): \(sortingOptionValue)", enabled: true)
+        } else {
+            sortingOptionDescriptionLabel.setAccessibility(id: "restaurant_cell_sorting_opt_description_label", label: nil, enabled: false)
+        }
+        sortingOptionValueLabel.setAccessibility(id: "restaurant_cell_sorting_opt_value_label", label: nil, enabled: false)
     }
 }
