@@ -15,9 +15,9 @@ class RestaurantListViewModel {
     var restaurantListClosed: [Restaurant] = []
     var numberOfSections = 3
     
-    var openingStateSelected: OpeningStatesTypes = .All
-    var sortingValueTypeSelected: SortingValueTypes = .Alphabetic
-    var sortingOrderTypes: SortingOrderTypes = .Ascending
+    var openingStateSelected: OpeningStatesType = .All
+    var sortingOptionTypeSelected: SortingOptionType = .Alphabetic
+    var sortingOrderTypeSelected: SortingOrderType = .Ascending
     
     let jsonFileName = "RestaurantListExample"
     
@@ -25,8 +25,19 @@ class RestaurantListViewModel {
     func loadRestaurantList() {
         guard let list = loadJson(fileName: jsonFileName) else { return }
         separateRestaurantsByOpeningStates(list)
+        sortByOption(sortingOptionTypeSelected, order: sortingOrderTypeSelected)
     }
     
+    // View Info Functions
+    func getTitleText() -> String {
+        return "Restaurants"
+    }
+    
+    func getSortingOptionSelectedText() -> String {
+        return "Sorted by: \(sortingOptionTypeSelected.rawValue), \(sortingOrderTypeSelected.rawValue)"
+    }
+    
+    // Table View Info Functions
     func getNumberOfSections() -> Int {
         return numberOfSections
     }
@@ -34,11 +45,11 @@ class RestaurantListViewModel {
     func getTitleForHeaderInSection(section: Int) -> String {
         switch section {
         case 0:
-            return shouldShowOpeningState(.Open) ? OpeningStatesTypes.Open.rawValue.uppercased() : ""
+            return shouldShowOpeningState(.Open) ? OpeningStatesType.Open.rawValue.uppercased() : ""
         case 1:
-            return shouldShowOpeningState(.OrderAhead) ? OpeningStatesTypes.OrderAhead.rawValue.uppercased() : ""
+            return shouldShowOpeningState(.OrderAhead) ? OpeningStatesType.OrderAhead.rawValue.uppercased() : ""
         case 2:
-            return shouldShowOpeningState(.Closed) ? OpeningStatesTypes.Closed.rawValue.uppercased() : ""
+            return shouldShowOpeningState(.Closed) ? OpeningStatesType.Closed.rawValue.uppercased() : ""
         default:
             return ""
         }
@@ -75,6 +86,19 @@ class RestaurantListViewModel {
         }
     }
     
+    func getRestaurantSortingOptionDescritpion() -> String? {
+        return sortingOptionTypeSelected == .Alphabetic ? nil : sortingOptionTypeSelected.rawValue
+    }
+    
+    func getRestaurantSortingOptionValue(indexPath: IndexPath) -> String? {
+        switch indexPath.section {
+        case 0: return getSortingOptionValueForRestaurantList(restaurantListOpen, indexPath: indexPath, sortingType: sortingOptionTypeSelected)
+        case 1: return getSortingOptionValueForRestaurantList(restaurantListOrderAhead, indexPath: indexPath, sortingType: sortingOptionTypeSelected)
+        case 2: return getSortingOptionValueForRestaurantList(restaurantListClosed, indexPath: indexPath, sortingType: sortingOptionTypeSelected)
+        default: return nil
+        }
+    }
+    
     // MARK: - Private Functions
     private func loadJson(fileName: String) -> RestaurantList? {
         if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
@@ -88,25 +112,5 @@ class RestaurantListViewModel {
             }
         }
         return nil
-    }
-    
-    private func separateRestaurantsByOpeningStates(_ list: RestaurantList) {
-        restaurantListOpen = getOpeningStateRestaurants(inList: list.restaurants, withState: .Open)
-        restaurantListOrderAhead = getOpeningStateRestaurants(inList: list.restaurants, withState: .OrderAhead)
-        restaurantListClosed = getOpeningStateRestaurants(inList: list.restaurants, withState: .Closed)
-    }
-    
-    private func getOpeningStateRestaurants(inList list: [Restaurant], withState state: OpeningStatesTypes) -> [Restaurant] {
-        var newList: [Restaurant] = []
-        for restaurant in list {
-            if restaurant.status == state.rawValue {
-                newList.append(restaurant)
-            }
-        }
-        return newList
-    }
-    
-    private func shouldShowOpeningState(_ state: OpeningStatesTypes) -> Bool {
-        return openingStateSelected == .All || openingStateSelected == state ? true : false
     }
 }

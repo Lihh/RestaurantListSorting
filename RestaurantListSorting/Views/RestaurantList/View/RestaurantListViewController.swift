@@ -10,6 +10,8 @@ import UIKit
 class RestaurantListViewController: UIViewController {
     
     // MARK: - Outlets
+    @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var sortingOptionSelectedLabel: UILabel!
     @IBOutlet weak var restaurantListTableView: UITableView!
     
     // MARK: - Properties
@@ -25,6 +27,13 @@ class RestaurantListViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.loadRestaurantList()
+        setupView()
+    }
+    
+    // MARK: - Private Functions
+    private func setupView() {
+        titleLabel.text = viewModel.getTitleText()
+        sortingOptionSelectedLabel.text = viewModel.getSortingOptionSelectedText()
     }
 }
 

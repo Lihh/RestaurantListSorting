@@ -26,7 +26,9 @@ extension RestaurantListViewController: UITableViewDelegate, UITableViewDataSour
         let cell = tableView.dequeueReusableCell(withIdentifier: "RestaurantTableViewCellId", for: indexPath) as! RestaurantTableViewCell
         let restaurantName = viewModel.getRestaurantName(indexPath: indexPath)
         let restaurantOpeningState = viewModel.getRestaurantOpeningState(indexPath: indexPath)
-        cell.setRestaurantCell(name: restaurantName, openingState: restaurantOpeningState)
+        let sortingDescription = viewModel.getRestaurantSortingOptionDescritpion()
+        let sortingValue = viewModel.getRestaurantSortingOptionValue(indexPath: indexPath)
+        cell.setRestaurantCell(name: restaurantName, openingState: restaurantOpeningState, sortingOptionDescription: sortingDescription, sortingOptionValue: sortingValue)
         return cell
     }
     

@@ -5,26 +5,26 @@
 //  Created by Lidia Chou on 07/04/22.
 //
 
-enum OpeningStatesTypes: String {
+enum OpeningStatesType: String {
     case All = "all"
     case Open = "open"
     case OrderAhead = "order ahead"
     case Closed = "closed"
 }
 
-enum SortingValueTypes {
-    case Alphabetic
-    case BestMatch
-    case Newest
-    case RatingAverage
-    case Distance
-    case Popularity
-    case AverageProductPrice
-    case DeliveryCosts
-    case MinCost
+enum SortingOptionType: String {
+    case Alphabetic = "Alphabetic"
+    case BestMatch = "Best Match"
+    case Newest = "Newest"
+    case RatingAverage = "Rating Average"
+    case Distance = "Distance"
+    case Popularity = "Popularity"
+    case AverageProductPrice = "Average Product Price"
+    case DeliveryCosts = "Delivery Costs"
+    case MinCost = "Min Cost"
 }
 
-enum SortingOrderTypes {
-    case Ascending
-    case Descending
+enum SortingOrderType: String {
+    case Ascending = "Ascending"
+    case Descending = "Descending"
 }

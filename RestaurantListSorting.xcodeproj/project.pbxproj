@@ -23,6 +23,7 @@
 		02552E3027FD757D00752CA6 /* RestaurantListViewController+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02552E2F27FD757D00752CA6 /* RestaurantListViewController+TableView.swift */; };
 		02552E3227FD783E00752CA6 /* RestaurantTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02552E3127FD783E00752CA6 /* RestaurantTableViewCell.swift */; };
 		02552E3627FE8F1900752CA6 /* GlobalEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02552E3527FE8F1900752CA6 /* GlobalEnums.swift */; };
+		02552E3A27FEA8D900752CA6 /* RestaurantListViewModel+SortingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02552E3927FEA8D900752CA6 /* RestaurantListViewModel+SortingOptions.swift */; };
 		C08DD72980237A3E4CA8627D /* Pods_RestaurantListSorting_RestaurantListSortingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06AB4B5DF153B6D5A6C46CCA /* Pods_RestaurantListSorting_RestaurantListSortingUITests.framework */; };
 		C520056B520D83E30F41A497 /* Pods_RestaurantListSortingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC27E9F6545FD5D143F030C /* Pods_RestaurantListSortingTests.framework */; };
 		C9F108494655F566B2D4055B /* Pods_RestaurantListSorting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5090190868E7974E65038883 /* Pods_RestaurantListSorting.framework */; };
@@ -66,6 +67,7 @@
 		02552E2F27FD757D00752CA6 /* RestaurantListViewController+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RestaurantListViewController+TableView.swift"; sourceTree = "<group>"; };
 		02552E3127FD783E00752CA6 /* RestaurantTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RestaurantTableViewCell.swift; sourceTree = "<group>"; };
 		02552E3527FE8F1900752CA6 /* GlobalEnums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalEnums.swift; sourceTree = "<group>"; };
+		02552E3927FEA8D900752CA6 /* RestaurantListViewModel+SortingOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RestaurantListViewModel+SortingOptions.swift"; sourceTree = "<group>"; };
 		06AB4B5DF153B6D5A6C46CCA /* Pods_RestaurantListSorting_RestaurantListSortingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantListSorting_RestaurantListSortingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BCC703A730EC56433255650 /* Pods-RestaurantListSortingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantListSortingTests.release.xcconfig"; path = "Target Support Files/Pods-RestaurantListSortingTests/Pods-RestaurantListSortingTests.release.xcconfig"; sourceTree = "<group>"; };
 		275AD7EC999FA61DC3D00EE4 /* Pods-RestaurantListSorting-RestaurantListSortingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantListSorting-RestaurantListSortingUITests.release.xcconfig"; path = "Target Support Files/Pods-RestaurantListSorting-RestaurantListSortingUITests/Pods-RestaurantListSorting-RestaurantListSortingUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 			isa = PBXGroup;
 			children = (
 				02552E0D27FD44AB00752CA6 /* RestaurantListViewModel.swift */,
+				02552E3927FEA8D900752CA6 /* RestaurantListViewModel+SortingOptions.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -501,6 +504,7 @@
 				02552E3627FE8F1900752CA6 /* GlobalEnums.swift in Sources */,
 				02552E3027FD757D00752CA6 /* RestaurantListViewController+TableView.swift in Sources */,
 				02552DD927FD3A7A00752CA6 /* RestaurantListViewController.swift in Sources */,
+				02552E3A27FEA8D900752CA6 /* RestaurantListViewModel+SortingOptions.swift in Sources */,
 				02552E1A27FD49D000752CA6 /* RestaurantList.swift in Sources */,
 				02552E0E27FD44AB00752CA6 /* RestaurantListViewModel.swift in Sources */,
 				02552E3227FD783E00752CA6 /* RestaurantTableViewCell.swift in Sources */,
