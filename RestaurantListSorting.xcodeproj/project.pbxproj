@@ -26,6 +26,8 @@
 		02552E3A27FEA8D900752CA6 /* RestaurantListViewModel+SortingOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02552E3927FEA8D900752CA6 /* RestaurantListViewModel+SortingOptions.swift */; };
 		02552E3D27FEC27E00752CA6 /* UIAccessibility+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02552E3C27FEC27E00752CA6 /* UIAccessibility+Extensions.swift */; };
 		02552E4827FF8F8000752CA6 /* RestaurantListViewController+PickerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02552E4727FF8F8000752CA6 /* RestaurantListViewController+PickerView.swift */; };
+		02552E4B28000FC900752CA6 /* UserDefaultsRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02552E4A28000FC900752CA6 /* UserDefaultsRepository.swift */; };
+		02552E4D2800113A00752CA6 /* GlobalStructs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02552E4C2800113A00752CA6 /* GlobalStructs.swift */; };
 		C08DD72980237A3E4CA8627D /* Pods_RestaurantListSorting_RestaurantListSortingUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 06AB4B5DF153B6D5A6C46CCA /* Pods_RestaurantListSorting_RestaurantListSortingUITests.framework */; };
 		C520056B520D83E30F41A497 /* Pods_RestaurantListSortingTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AC27E9F6545FD5D143F030C /* Pods_RestaurantListSortingTests.framework */; };
 		C9F108494655F566B2D4055B /* Pods_RestaurantListSorting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5090190868E7974E65038883 /* Pods_RestaurantListSorting.framework */; };
@@ -72,6 +74,8 @@
 		02552E3927FEA8D900752CA6 /* RestaurantListViewModel+SortingOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RestaurantListViewModel+SortingOptions.swift"; sourceTree = "<group>"; };
 		02552E3C27FEC27E00752CA6 /* UIAccessibility+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAccessibility+Extensions.swift"; sourceTree = "<group>"; };
 		02552E4727FF8F8000752CA6 /* RestaurantListViewController+PickerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RestaurantListViewController+PickerView.swift"; sourceTree = "<group>"; };
+		02552E4A28000FC900752CA6 /* UserDefaultsRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsRepository.swift; sourceTree = "<group>"; };
+		02552E4C2800113A00752CA6 /* GlobalStructs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalStructs.swift; sourceTree = "<group>"; };
 		06AB4B5DF153B6D5A6C46CCA /* Pods_RestaurantListSorting_RestaurantListSortingUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RestaurantListSorting_RestaurantListSortingUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		0BCC703A730EC56433255650 /* Pods-RestaurantListSortingTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantListSortingTests.release.xcconfig"; path = "Target Support Files/Pods-RestaurantListSortingTests/Pods-RestaurantListSortingTests.release.xcconfig"; sourceTree = "<group>"; };
 		275AD7EC999FA61DC3D00EE4 /* Pods-RestaurantListSorting-RestaurantListSortingUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantListSorting-RestaurantListSortingUITests.release.xcconfig"; path = "Target Support Files/Pods-RestaurantListSorting-RestaurantListSortingUITests/Pods-RestaurantListSorting-RestaurantListSortingUITests.release.xcconfig"; sourceTree = "<group>"; };
@@ -214,7 +218,8 @@
 		02552E1327FD47F600752CA6 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				02552E3427FE8F0800752CA6 /* GlobalEnums */,
+				02552E4928000FB500752CA6 /* Repositories */,
+				02552E3427FE8F0800752CA6 /* GlobalClasses */,
 				02552E1527FD484E00752CA6 /* JSONFiles */,
 				02552E1427FD481C00752CA6 /* Models */,
 			);
@@ -254,12 +259,13 @@
 			path = SubViews;
 			sourceTree = "<group>";
 		};
-		02552E3427FE8F0800752CA6 /* GlobalEnums */ = {
+		02552E3427FE8F0800752CA6 /* GlobalClasses */ = {
 			isa = PBXGroup;
 			children = (
 				02552E3527FE8F1900752CA6 /* GlobalEnums.swift */,
+				02552E4C2800113A00752CA6 /* GlobalStructs.swift */,
 			);
-			path = GlobalEnums;
+			path = GlobalClasses;
 			sourceTree = "<group>";
 		};
 		02552E3B27FEC23700752CA6 /* Extensions */ = {
@@ -268,6 +274,14 @@
 				02552E3C27FEC27E00752CA6 /* UIAccessibility+Extensions.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		02552E4928000FB500752CA6 /* Repositories */ = {
+			isa = PBXGroup;
+			children = (
+				02552E4A28000FC900752CA6 /* UserDefaultsRepository.swift */,
+			);
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		0CF701E28B2684295F0B084F /* Frameworks */ = {
@@ -515,6 +529,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				02552E4B28000FC900752CA6 /* UserDefaultsRepository.swift in Sources */,
 				02552E3D27FEC27E00752CA6 /* UIAccessibility+Extensions.swift in Sources */,
 				02552E3627FE8F1900752CA6 /* GlobalEnums.swift in Sources */,
 				02552E3027FD757D00752CA6 /* RestaurantListViewController+TableView.swift in Sources */,
@@ -523,6 +538,7 @@
 				02552E1A27FD49D000752CA6 /* RestaurantList.swift in Sources */,
 				02552E0E27FD44AB00752CA6 /* RestaurantListViewModel.swift in Sources */,
 				02552E3227FD783E00752CA6 /* RestaurantTableViewCell.swift in Sources */,
+				02552E4D2800113A00752CA6 /* GlobalStructs.swift in Sources */,
 				02552E4827FF8F8000752CA6 /* RestaurantListViewController+PickerView.swift in Sources */,
 				02552DDF27FD3A7A00752CA6 /* RestaurantListSorting.xcdatamodeld in Sources */,
 				02552DD527FD3A7A00752CA6 /* AppDelegate.swift in Sources */,
