@@ -39,22 +39,16 @@ class RestaurantListViewModelTests: QuickSpec {
                 expect(self.subject.getOpeningStateSelectedText()).to(equal("Opening state:"))
             }
             
-            it("Should validate opening state selection button text for openingStateSelected = All") {
+            it("Should validate opening state selection button text") {
                 self.subject.openingStateSelected = .All
                 expect(self.subject.getOpeningStateSelectionButtonText()).to(equal("all restaurants"))
-            }
-            
-            it("Should validate opening state selection button text for openingStateSelected = Open") {
+                
                 self.subject.openingStateSelected = .Open
                 expect(self.subject.getOpeningStateSelectionButtonText()).to(equal("open restaurants"))
-            }
-            
-            it("Should validate opening state selection button text for openingStateSelected = OrderAhead") {
+                
                 self.subject.openingStateSelected = .OrderAhead
                 expect(self.subject.getOpeningStateSelectionButtonText()).to(equal("order ahead restaurants"))
-            }
-            
-            it("Should validate opening state selection button text for openingStateSelected = Closed") {
+                
                 self.subject.openingStateSelected = .Closed
                 expect(self.subject.getOpeningStateSelectionButtonText()).to(equal("closed restaurants"))
             }
@@ -67,26 +61,43 @@ class RestaurantListViewModelTests: QuickSpec {
                 expect(self.subject.getSortingOptionSelectedText()).to(equal("Sorted by:"))
             }
             
-            it("Should validate sorting option selection button text for sortingOptionTypeSelected = Alphabetic") {
+            it("Should validate sorting option selection button text") {
                 self.subject.sortingOptionTypeSelected = .Alphabetic
                 expect(self.subject.getSortingOptionSelectionButtonText()).to(equal("Alphabetic"))
-            }
-            
-            it("Should validate sorting option selection button text for sortingOptionTypeSelected = Newest") {
+                
+                self.subject.sortingOptionTypeSelected = .BestMatch
+                expect(self.subject.getSortingOptionSelectionButtonText()).to(equal("Best Match"))
+                
                 self.subject.sortingOptionTypeSelected = .Newest
                 expect(self.subject.getSortingOptionSelectionButtonText()).to(equal("Newest"))
+                
+                self.subject.sortingOptionTypeSelected = .RatingAverage
+                expect(self.subject.getSortingOptionSelectionButtonText()).to(equal("Rating Average"))
+                
+                self.subject.sortingOptionTypeSelected = .Distance
+                expect(self.subject.getSortingOptionSelectionButtonText()).to(equal("Distance"))
+                
+                self.subject.sortingOptionTypeSelected = .Popularity
+                expect(self.subject.getSortingOptionSelectionButtonText()).to(equal("Popularity"))
+                
+                self.subject.sortingOptionTypeSelected = .AverageProductPrice
+                expect(self.subject.getSortingOptionSelectionButtonText()).to(equal("Average Product Price"))
+                
+                self.subject.sortingOptionTypeSelected = .DeliveryCosts
+                expect(self.subject.getSortingOptionSelectionButtonText()).to(equal("Delivery Costs"))
+                
+                self.subject.sortingOptionTypeSelected = .MinCost
+                expect(self.subject.getSortingOptionSelectionButtonText()).to(equal("Min Cost"))
             }
             
             it("Should validate sorting option selection button accessibility hint") {
                 expect(self.subject.getSortingOptionSelectionButtonAccessibilityHint()).to(equal("Change sorting option"))
             }
             
-            it("Should validate sorting order selection button text for sortingOrderTypeSelected = Ascending") {
+            it("Should validate sorting order selection button text") {
                 self.subject.sortingOrderTypeSelected = .Ascending
                 expect(self.subject.getSortingOrderSelectionButtonText()).to(equal("Ascending"))
-            }
-            
-            it("Should validate sorting order selection button text for sortingOrderTypeSelected = Descending") {
+                
                 self.subject.sortingOrderTypeSelected = .Descending
                 expect(self.subject.getSortingOrderSelectionButtonText()).to(equal("Descending"))
             }
@@ -146,47 +157,31 @@ class RestaurantListViewModelTests: QuickSpec {
                 expect(self.subject.getRestaurantName(indexPath: IndexPath(row: 0, section: 3))).to(equal(""))
             }
             
-            it("Should validate restaurant sorting option description for Alphabetic option") {
+            it("Should validate restaurant sorting option description") {
                 self.subject.sortingOptionTypeSelected = .Alphabetic
                 expect(self.subject.getRestaurantSortingOptionDescritpion()).to(beNil())
-            }
-            
-            it("Should validate restaurant sorting option description for Best Match option") {
+                
                 self.subject.sortingOptionTypeSelected = .BestMatch
                 expect(self.subject.getRestaurantSortingOptionDescritpion()).to(equal("Best Match"))
-            }
-            
-            it("Should validate restaurant sorting option description for Newest option") {
+                
                 self.subject.sortingOptionTypeSelected = .Newest
                 expect(self.subject.getRestaurantSortingOptionDescritpion()).to(equal("Newest"))
-            }
-            
-            it("Should validate restaurant sorting option description for Rating Average option") {
+                
                 self.subject.sortingOptionTypeSelected = .RatingAverage
                 expect(self.subject.getRestaurantSortingOptionDescritpion()).to(equal("Rating Average"))
-            }
-            
-            it("Should validate restaurant sorting option description for Distance option") {
+                
                 self.subject.sortingOptionTypeSelected = .Distance
                 expect(self.subject.getRestaurantSortingOptionDescritpion()).to(equal("Distance"))
-            }
-            
-            it("Should validate restaurant sorting option description for Popularity option") {
+                
                 self.subject.sortingOptionTypeSelected = .Popularity
                 expect(self.subject.getRestaurantSortingOptionDescritpion()).to(equal("Popularity"))
-            }
-            
-            it("Should validate restaurant sorting option description for Average Product Price option") {
+                
                 self.subject.sortingOptionTypeSelected = .AverageProductPrice
                 expect(self.subject.getRestaurantSortingOptionDescritpion()).to(equal("Average Product Price"))
-            }
-            
-            it("Should validate restaurant sorting option description for Delivery Costs option") {
+                
                 self.subject.sortingOptionTypeSelected = .DeliveryCosts
                 expect(self.subject.getRestaurantSortingOptionDescritpion()).to(equal("Delivery Costs"))
-            }
-            
-            it("Should validate restaurant sorting option description for Min Cost option") {
+                
                 self.subject.sortingOptionTypeSelected = .MinCost
                 expect(self.subject.getRestaurantSortingOptionDescritpion()).to(equal("Min Cost"))
             }
