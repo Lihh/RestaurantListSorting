@@ -71,14 +71,17 @@ extension RestaurantListViewModel {
     // Change Sorting Type Selection
     func didChangeOpeningState(selectedRow: Int) {
         openingStateSelected = openingStatesTypesArray[selectedRow]
+        UserDefaultsRepository.shared.saveOpeningStateTypeSelected(openingStateSelected)
     }
     
     func didChangeOptionType(selectedRow: Int) {
         sortingOptionTypeSelected = sortingOptionTypesArray[selectedRow]
+        UserDefaultsRepository.shared.saveSortingOptionTypeSelected(sortingOptionTypeSelected)
     }
     
     func didChangeOrderType(selectedRow: Int) {
         sortingOrderTypeSelected = sortingOrderTypesArray[selectedRow]
+        UserDefaultsRepository.shared.saveSortingOrderTypeSelected(sortingOrderTypeSelected)
     }
     
     // MARK: - Private Functions

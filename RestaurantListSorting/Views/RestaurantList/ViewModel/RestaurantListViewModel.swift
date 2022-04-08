@@ -29,7 +29,7 @@ class RestaurantListViewModel {
     func loadRestaurantList() {
         guard let list = loadJson(fileName: jsonFileName) else { return }
         separateRestaurantsByOpeningStates(list)
-        sortByOption(sortingOptionTypeSelected, order: sortingOrderTypeSelected)
+        getPreviousSortingSelection()
     }
     
     func updateInfo() {
@@ -190,5 +190,17 @@ class RestaurantListViewModel {
             }
         }
         return nil
+    }
+    
+    private func getPreviousSortingSelection() {
+        if let previousOpeningStateSelected = UserDefaultsRepository.shared.getOpeningStateTypeSelected() {
+            openingStateSelected = previousOpeningStateSelected
+        }
+        if let previousSortingOptionTypeSelected = UserDefaultsRepository.shared.getSortingOptionTypeSelected() {
+            sortingOptionTypeSelected = previousSortingOptionTypeSelected
+        }
+        if let previousSortingOrderTypeSelected = UserDefaultsRepository.shared.getSortingOrderTypeSelected() {
+            sortingOrderTypeSelected = previousSortingOrderTypeSelected
+        }
     }
 }
