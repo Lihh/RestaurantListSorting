@@ -1,0 +1,6 @@
+framework module Pods_RestaurantListSorting_RestaurantListSortingUITests {
+  umbrella header "Pods-RestaurantListSorting-RestaurantListSortingUITests-umbrella.h"
+
+  export *
+  module * { export * }
+}
