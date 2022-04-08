@@ -20,12 +20,16 @@ class RestaurantListViewController: UIViewController {
     
     // MARK: - Properties
     var viewModel = RestaurantListViewModel()
+    lazy var openingStateSelectionPickerView = UIPickerView(frame: CGRect(x: 0, y: 20, width: UIScreen.main.bounds.width - 20, height: 180))
+    lazy var sortingOptionSelectionPickerView = UIPickerView(frame: CGRect(x: 0, y: 20, width: UIScreen.main.bounds.width - 20, height: 180))
+    lazy var sortingOrderSelectionPickerView = UIPickerView(frame: CGRect(x: 0, y: 20, width: UIScreen.main.bounds.width - 20, height: 180))
     let cellHeightDefaultValue: CGFloat = 60
     
     // MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
         setTableViewDelegates()
+        setPickerViewDelegates()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -34,8 +38,30 @@ class RestaurantListViewController: UIViewController {
         setupView()
     }
     
-    // MARK: - Private Functions
-    private func setupView() {
+    // MARK: - Actions
+    @IBAction func didTapChangeOpeningStateSelectionButton(_ sender: Any) {
+        let pickerViewTitle = viewModel.getPickerViewTitleText(.OpeningStates)
+        let alertActionDefault = UIAlertAction(title: viewModel.getAlertDefaultButtonText(), style: .default, handler: nil)
+        getAlertWithPickerView(title: pickerViewTitle, pickerView: openingStateSelectionPickerView, alertActionsArray: [alertActionDefault])
+    }
+    
+    @IBAction func didTapChangeOptionTypeSelectionButton(_ sender: Any) {
+        let pickerViewTitle = viewModel.getPickerViewTitleText(.Option)
+        let alertActionDefault = UIAlertAction(title: viewModel.getAlertDefaultButtonText(), style: .default, handler: nil)
+        getAlertWithPickerView(title: pickerViewTitle, pickerView: sortingOptionSelectionPickerView, alertActionsArray: [alertActionDefault])
+    }
+    
+    @IBAction func didTapChangeOrderTypeSelectionButton(_ sender: Any) {
+        let pickerViewTitle = viewModel.getPickerViewTitleText(.Order)
+        let alertActionDefault = UIAlertAction(title: viewModel.getAlertDefaultButtonText(), style: .default, handler: nil)
+        getAlertWithPickerView(title: pickerViewTitle, pickerView: sortingOrderSelectionPickerView, alertActionsArray: [alertActionDefault])
+    }
+    
+    // MARK: - Public Functions
+    func setupView() {
+        viewModel.updateInfo()
+        restaurantListTableView.reloadData()
+        
         titleLabel.text = viewModel.getTitleText()
         
         openingStateSelectedLabel.text = viewModel.getOpeningStateSelectedText()
@@ -48,6 +74,16 @@ class RestaurantListViewController: UIViewController {
         setupAccessibility()
     }
     
+    // MARK: - Private Functions
+    private func getAlertWithPickerView(title: String, pickerView: UIPickerView, alertActionsArray: [UIAlertAction]) {
+        let alert = UIAlertController(title: title, message: "\n\n\n\n\n\n\n", preferredStyle: .actionSheet)
+        alert.view.addSubview(pickerView)
+        for action in alertActionsArray {
+            alert.addAction(action)
+        }
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     private func setupAccessibility() {
         titleLabel.setAccessibility(id: "restaurant_list_view_title_label", label: titleLabel.text, enabled: true)
         
@@ -58,6 +94,7 @@ class RestaurantListViewController: UIViewController {
         sortingOptionSelectedLabel.setAccessibility(id: "restaurant_list_sorting_opt_selected_label", label: nil, enabled: false)
         sortingOptionSelectionButton.setAccessibility(id: "restaurant_list_sorting_opt_selection_button", label: "\(sortingOptionSelectedLabel.text ?? "") \(sortingOptionSelectionButton.titleLabel?.text ?? "")", enabled: true)
         sortingOptionSelectionButton.setAccessibilityHint(viewModel.getSortingOptionSelectionButtonAccessibilityHint())
+        
         sortingOrderSelectionButton.setAccessibility(id: "restaurant_list_sorting_order_selection_button", label: sortingOrderSelectionButton.titleLabel?.text, enabled: true)
         sortingOrderSelectionButton.setAccessibilityHint(viewModel.getSortingOrderSelectionButtonAccessibilityHint())
     }

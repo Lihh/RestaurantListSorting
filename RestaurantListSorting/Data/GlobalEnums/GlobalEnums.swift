@@ -5,14 +5,20 @@
 //  Created by Lidia Chou on 07/04/22.
 //
 
-enum OpeningStatesType: String {
+enum SortingSelectionType {
+    case OpeningStates
+    case Option
+    case Order
+}
+
+enum OpeningStatesType: String, CaseIterable {
     case All = "all"
     case Open = "open"
     case OrderAhead = "order ahead"
     case Closed = "closed"
 }
 
-enum SortingOptionType: String {
+enum SortingOptionType: String, CaseIterable {
     case Alphabetic = "Alphabetic"
     case BestMatch = "Best Match"
     case Newest = "Newest"
@@ -24,7 +30,7 @@ enum SortingOptionType: String {
     case MinCost = "Min Cost"
 }
 
-enum SortingOrderType: String {
+enum SortingOrderType: String, CaseIterable {
     case Ascending = "Ascending"
     case Descending = "Descending"
 }

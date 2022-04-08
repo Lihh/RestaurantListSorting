@@ -94,16 +94,25 @@
                                 <rect key="frame" x="256" y="96" width="138" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Change Selection"/>
+                                <connections>
+                                    <action selector="didTapChangeOpeningStateSelectionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="J5Q-gG-3ps"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8L1-Wt-UXX">
                                 <rect key="frame" x="215" y="158" width="179" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Change Order Selection"/>
+                                <connections>
+                                    <action selector="didTapChangeOrderTypeSelectionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zLr-7Z-Qhe"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNY-ZO-mYj">
                                 <rect key="frame" x="256" y="127" width="138" height="31"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" title="Change Selection"/>
+                                <connections>
+                                    <action selector="didTapChangeOptionTypeSelectionButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="9Dy-mZ-etO"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>

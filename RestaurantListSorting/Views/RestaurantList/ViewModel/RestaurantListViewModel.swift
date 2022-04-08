@@ -14,17 +14,25 @@ class RestaurantListViewModel {
     var restaurantListOrderAhead: [Restaurant] = []
     var restaurantListClosed: [Restaurant] = []
     var numberOfSections = 3
+    var numberOfComponentsInPickerView = 1
     
     var openingStateSelected: OpeningStatesType = .All
     var sortingOptionTypeSelected: SortingOptionType = .Alphabetic
     var sortingOrderTypeSelected: SortingOrderType = .Ascending
     
     let jsonFileName = "RestaurantListExample"
+    let openingStatesTypesArray: [OpeningStatesType] = OpeningStatesType.allCases.map { $0 }
+    let sortingOptionTypesArray: [SortingOptionType] = SortingOptionType.allCases.map { $0 }
+    let sortingOrderTypesArray: [SortingOrderType] = SortingOrderType.allCases.map { $0 }
     
     // MARK: - Public Functions
     func loadRestaurantList() {
         guard let list = loadJson(fileName: jsonFileName) else { return }
         separateRestaurantsByOpeningStates(list)
+        sortByOption(sortingOptionTypeSelected, order: sortingOrderTypeSelected)
+    }
+    
+    func updateInfo() {
         sortByOption(sortingOptionTypeSelected, order: sortingOrderTypeSelected)
     }
     
@@ -38,7 +46,7 @@ class RestaurantListViewModel {
     }
     
     func getOpeningStateSelectionButtonText() -> String {
-        return "showing \(openingStateSelected.rawValue) restaurants"
+        return "\(openingStateSelected.rawValue) restaurants"
     }
     
     func getOpeningStateSelectionButtonAccessibilityHint() -> String {
@@ -125,6 +133,48 @@ class RestaurantListViewModel {
         case 2: return getSortingOptionValueForRestaurantList(restaurantListClosed, indexPath: indexPath, sortingType: sortingOptionTypeSelected)
         default: return nil
         }
+    }
+    
+    // Picker View Info
+    func getNumberOfComponentsInPickerView() -> Int {
+        return numberOfComponentsInPickerView
+    }
+    
+    func getNumberOfRowsInPickerView(selectionType: SortingSelectionType) -> Int {
+        switch selectionType {
+        case .OpeningStates:
+            return openingStatesTypesArray.count
+        case .Option:
+            return sortingOptionTypesArray.count
+        case .Order:
+            return sortingOrderTypesArray.count
+        }
+    }
+    
+    func getTitleForRowInPickerView(_ selectionType: SortingSelectionType, forRow row: Int) -> String {
+        switch selectionType {
+        case .OpeningStates:
+            return openingStatesTypesArray[row].rawValue
+        case .Option:
+            return sortingOptionTypesArray[row].rawValue
+        case .Order:
+            return sortingOrderTypesArray[row].rawValue
+        }
+    }
+    
+    func getPickerViewTitleText(_ selectionType: SortingSelectionType) -> String {
+        switch selectionType {
+        case .OpeningStates:
+            return "Change opening state"
+        case .Option:
+            return "Change sorting option type"
+        case .Order:
+            return "Change sorting order type"
+        }
+    }
+    
+    func getAlertDefaultButtonText() -> String {
+        return "Ok"
     }
     
     // MARK: - Private Functions

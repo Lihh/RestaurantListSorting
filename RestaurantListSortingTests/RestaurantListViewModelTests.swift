@@ -41,22 +41,22 @@ class RestaurantListViewModelTests: QuickSpec {
             
             it("Should validate opening state selection button text for openingStateSelected = All") {
                 self.subject.openingStateSelected = .All
-                expect(self.subject.getOpeningStateSelectionButtonText()).to(equal("showing all restaurants"))
+                expect(self.subject.getOpeningStateSelectionButtonText()).to(equal("all restaurants"))
             }
             
             it("Should validate opening state selection button text for openingStateSelected = Open") {
                 self.subject.openingStateSelected = .Open
-                expect(self.subject.getOpeningStateSelectionButtonText()).to(equal("showing open restaurants"))
+                expect(self.subject.getOpeningStateSelectionButtonText()).to(equal("open restaurants"))
             }
             
             it("Should validate opening state selection button text for openingStateSelected = OrderAhead") {
                 self.subject.openingStateSelected = .OrderAhead
-                expect(self.subject.getOpeningStateSelectionButtonText()).to(equal("showing order ahead restaurants"))
+                expect(self.subject.getOpeningStateSelectionButtonText()).to(equal("order ahead restaurants"))
             }
             
             it("Should validate opening state selection button text for openingStateSelected = Closed") {
                 self.subject.openingStateSelected = .Closed
-                expect(self.subject.getOpeningStateSelectionButtonText()).to(equal("showing closed restaurants"))
+                expect(self.subject.getOpeningStateSelectionButtonText()).to(equal("closed restaurants"))
             }
             
             it("Should validate opening state selection button accessibility hint") {
@@ -287,6 +287,51 @@ class RestaurantListViewModelTests: QuickSpec {
                 expect(self.subject.shouldShowOpeningState(.Closed)).to(beTrue())
             }
             
+            // Picker View Info Functions Validation
+            it("Should validate number of components in picker view") {
+                expect(self.subject.getNumberOfComponentsInPickerView()).to(equal(1))
+            }
+            
+            it("Should validate number of rows for picker views") {
+                expect(self.subject.getNumberOfRowsInPickerView(selectionType: .OpeningStates)).to(equal(4))
+                expect(self.subject.getNumberOfRowsInPickerView(selectionType: .Option)).to(equal(9))
+                expect(self.subject.getNumberOfRowsInPickerView(selectionType: .Order)).to(equal(2))
+            }
+            
+            it("Should validate title of rows for opening states picker view") {
+                expect(self.subject.getTitleForRowInPickerView(.OpeningStates, forRow: 0)).to(equal("all"))
+                expect(self.subject.getTitleForRowInPickerView(.OpeningStates, forRow: 1)).to(equal("open"))
+                expect(self.subject.getTitleForRowInPickerView(.OpeningStates, forRow: 2)).to(equal("order ahead"))
+                expect(self.subject.getTitleForRowInPickerView(.OpeningStates, forRow: 3)).to(equal("closed"))
+            }
+            
+            it("Should validate title of rows for sorting option type picker view") {
+                expect(self.subject.getTitleForRowInPickerView(.Option, forRow: 0)).to(equal("Alphabetic"))
+                expect(self.subject.getTitleForRowInPickerView(.Option, forRow: 1)).to(equal("Best Match"))
+                expect(self.subject.getTitleForRowInPickerView(.Option, forRow: 2)).to(equal("Newest"))
+                expect(self.subject.getTitleForRowInPickerView(.Option, forRow: 3)).to(equal("Rating Average"))
+                expect(self.subject.getTitleForRowInPickerView(.Option, forRow: 4)).to(equal("Distance"))
+                expect(self.subject.getTitleForRowInPickerView(.Option, forRow: 5)).to(equal("Popularity"))
+                expect(self.subject.getTitleForRowInPickerView(.Option, forRow: 6)).to(equal("Average Product Price"))
+                expect(self.subject.getTitleForRowInPickerView(.Option, forRow: 7)).to(equal("Delivery Costs"))
+                expect(self.subject.getTitleForRowInPickerView(.Option, forRow: 8)).to(equal("Min Cost"))
+            }
+            
+            it("Should validate title of rows for sorting order type picker view") {
+                expect(self.subject.getTitleForRowInPickerView(.Order, forRow: 0)).to(equal("Ascending"))
+                expect(self.subject.getTitleForRowInPickerView(.Order, forRow: 1)).to(equal("Descending"))
+            }
+            
+            it("Should validate title text of picker views") {
+                expect(self.subject.getPickerViewTitleText(.OpeningStates)).to(equal("Change opening state"))
+                expect(self.subject.getPickerViewTitleText(.Option)).to(equal("Change sorting option type"))
+                expect(self.subject.getPickerViewTitleText(.Order)).to(equal("Change sorting order type"))
+            }
+            
+            it("Should validate title text of picker views") {
+                expect(self.subject.getAlertDefaultButtonText()).to(equal("Ok"))
+            }
+            
             // Sort by Option Values and Order Functions Validation
             it("Should validate sort by Alphabetic option, Ascending") {
                 self.subject.sortByOption(.Alphabetic, order: .Ascending)
@@ -412,6 +457,58 @@ class RestaurantListViewModelTests: QuickSpec {
                 expect(self.subject.restaurantListOpen[0].sortingValues.minCost).to(equal(2))
                 expect(self.subject.restaurantListOrderAhead[0].sortingValues.minCost).to(equal(4))
                 expect(self.subject.restaurantListClosed[0].sortingValues.minCost).to(equal(6))
+            }
+            
+            // Change Sorting Type Selection
+            it("Should validate changes on opening state") {
+                self.subject.didChangeOpeningState(selectedRow: 0)
+                expect(self.subject.openingStateSelected).to(equal(.All))
+                
+                self.subject.didChangeOpeningState(selectedRow: 1)
+                expect(self.subject.openingStateSelected).to(equal(.Open))
+                
+                self.subject.didChangeOpeningState(selectedRow: 2)
+                expect(self.subject.openingStateSelected).to(equal(.OrderAhead))
+                
+                self.subject.didChangeOpeningState(selectedRow: 3)
+                expect(self.subject.openingStateSelected).to(equal(.Closed))
+            }
+            
+            it("Should validate changes on sorting option type") {
+                self.subject.didChangeOptionType(selectedRow: 0)
+                expect(self.subject.sortingOptionTypeSelected).to(equal(.Alphabetic))
+                
+                self.subject.didChangeOptionType(selectedRow: 1)
+                expect(self.subject.sortingOptionTypeSelected).to(equal(.BestMatch))
+                
+                self.subject.didChangeOptionType(selectedRow: 2)
+                expect(self.subject.sortingOptionTypeSelected).to(equal(.Newest))
+                
+                self.subject.didChangeOptionType(selectedRow: 3)
+                expect(self.subject.sortingOptionTypeSelected).to(equal(.RatingAverage))
+                
+                self.subject.didChangeOptionType(selectedRow: 4)
+                expect(self.subject.sortingOptionTypeSelected).to(equal(.Distance))
+                
+                self.subject.didChangeOptionType(selectedRow: 5)
+                expect(self.subject.sortingOptionTypeSelected).to(equal(.Popularity))
+                
+                self.subject.didChangeOptionType(selectedRow: 6)
+                expect(self.subject.sortingOptionTypeSelected).to(equal(.AverageProductPrice))
+                
+                self.subject.didChangeOptionType(selectedRow: 7)
+                expect(self.subject.sortingOptionTypeSelected).to(equal(.DeliveryCosts))
+                
+                self.subject.didChangeOptionType(selectedRow: 8)
+                expect(self.subject.sortingOptionTypeSelected).to(equal(.MinCost))
+            }
+            
+            it("Should validate changes on sorting order type") {
+                self.subject.didChangeOrderType(selectedRow: 0)
+                expect(self.subject.sortingOrderTypeSelected).to(equal(.Ascending))
+                
+                self.subject.didChangeOrderType(selectedRow: 1)
+                expect(self.subject.sortingOrderTypeSelected).to(equal(.Descending))
             }
         }
     }

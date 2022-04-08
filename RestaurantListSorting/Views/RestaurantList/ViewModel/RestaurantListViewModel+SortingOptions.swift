@@ -68,6 +68,19 @@ extension RestaurantListViewModel {
         }
     }
     
+    // Change Sorting Type Selection
+    func didChangeOpeningState(selectedRow: Int) {
+        openingStateSelected = openingStatesTypesArray[selectedRow]
+    }
+    
+    func didChangeOptionType(selectedRow: Int) {
+        sortingOptionTypeSelected = sortingOptionTypesArray[selectedRow]
+    }
+    
+    func didChangeOrderType(selectedRow: Int) {
+        sortingOrderTypeSelected = sortingOrderTypesArray[selectedRow]
+    }
+    
     // MARK: - Private Functions
     // Opening States Functions
     private func getOpeningStateRestaurants(inList list: [Restaurant], withState state: OpeningStatesType) -> [Restaurant] {
