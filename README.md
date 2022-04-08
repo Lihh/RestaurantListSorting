@@ -1,5 +1,6 @@
 # Restaurant List Sorting
 Welcome to RestaurantListSorting iOS project!
+
 This is a sample project to visualize a restaurant list and sort them.
 
 # Getting Started
@@ -17,3 +18,6 @@ To use this project follow these steps:
 
 # Tests
 I have implemented Unit Tests using [Quick/Nimble](https://github.com/Quick/Nimble) because I believe they improve the code readability and organization.
+
+# Accessibility
+I have added the basics so this app is accessible through VoiceOver
